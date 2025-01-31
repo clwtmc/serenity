@@ -1,0 +1,8 @@
+#foreign(header = "<windows.h>")
+
+@foreign
+fun AllocConsole(): void;
+
+
+@foreign
+fun FreeConsole(): void;

@@ -1,0 +1,17 @@
+import libc
+import win32
+
+fun ThreadEntry() {
+    AllocConsole();
+
+    while (true) {
+
+    }
+
+    FreeConsole();
+}
+
+// needed so pink wont complain about no main function!
+fun main(){
+    ThreadEntry();
+}
