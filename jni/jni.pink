@@ -1,0 +1,89 @@
+import libc
+
+typedef JBoolean = uchar;
+typedef JChar = ushort;
+typedef JShort = short;
+typedef JFloat = float;
+typedef JDouble = double;
+typedef JInt = long;
+typedef JByte = char;
+typedef JLong = int64;
+
+struct _JObject {
+    dummy: int;
+}
+
+typedef JObject = _JObject*;
+typedef JClass = JObject;
+typedef JThrowable = JObject;
+typedef JString = JObject;
+typedef JArray = JObject;
+typedef JBooleanArray = JArray;
+typedef JByteArray = JArray;
+typedef JCharArray = JArray;
+typedef JShortArray = JArray;
+typedef JIntArray = JArray;
+typedef JLongArray = JArray;
+typedef JFloatArray = JArray;
+typedef JDoubleArray = JArray;
+typedef JObjectArray = JArray;
+
+typedef JWeak = JObject;
+
+union JValue {
+    z: JBoolean;
+    b: JByte;
+    c: JChar;
+    s: JShort;
+    i: JInt;
+    j: JLong;
+    f: JFloat;
+    d: JDouble;
+    l: JObject;
+}
+
+struct _JFieldID {
+    dummy: int;
+}
+typedef JFieldID = _JFieldID*;
+
+struct _JMethodID {
+    dummy: int;
+}
+typedef JMethodID = _JMethodID*;
+
+
+enum _JObjectType {
+    JNIInvalidRefType,
+    JNILocalRefType,
+    JNIGlobalRefType,
+    JNIWeakGlobalRefType,
+}
+
+typedef JObjectType = _JObjectType;
+
+const JNI_FALSE: int = 0;
+const JNI_TRUE: int = 1;
+
+const JNI_OK: int = 0;
+const JNI_ERR: int = -1;
+const JNI_EDETACHED: int = -2;
+const JNI_EVERSION: int = -3;
+const JNI_ENOMEM: int = -4;
+const JNI_EEXIST: int = -5;
+const JNI_EINVAL: int = -6;
+
+const JNI_COMMIT: int = 1;
+const JNI_ABORT: int = 2;
+
+struct JNINativeMethod {
+    name: char*;
+    signature: char*;
+    fnPtr: void*;
+}
+
+struct JNINativeInterface_ {
+    dummy: int;
+}
+
+typedef JNIEnv = JNINativeInterface_*;

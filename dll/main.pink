@@ -1,5 +1,6 @@
 import libc
 import win32
+import jni
 
 fun ThreadEntry() {
     AllocConsole();
